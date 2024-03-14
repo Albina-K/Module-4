@@ -2,41 +2,41 @@
 
 class MainClass
 {
-    public static void Main(string[] args)
+    static void Main(string[] args)
     {
-        Console.WriteLine("Напишите свой любимый цвет на английском с маленькой буквы");
+        (string Name, string Lastname, string Login, int LoginLength, bool HasPet, double Age, string[] favcolore) User;
 
-        var color = Console.ReadLine();
-
-        switch (color)
+        for (int k = 0; k < 3; k++)
         {
-            case "red":
-                Console.BackgroundColor = ConsoleColor.Red;
-                Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine("Введите имя");
+            User.Name = Console.ReadLine();
 
-                Console.WriteLine("Your color is red!");
-                break;
+            Console.WriteLine("Введите фамилию");
+            User.Lastname = Console.ReadLine();
 
-            case "green":
-                Console.BackgroundColor = ConsoleColor.Green;
-                Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine("Введите логин");
+            User.Login = Console.ReadLine();
+            User.LoginLength = User.Login.Length;
 
-                Console.WriteLine("Your color is green!");
-                break;
+            Console.WriteLine("Есть ли у вас животные? Да или Нет");
+            var result = Console.ReadLine();
+            if (result == "Да")
+            {
+                User.HasPet = true;
+            }
+            else
+            {
+                User.HasPet = false;
+            }
+            Console.WriteLine("Введите возраст пользователя");
+            User.Age = double.Parse(Console.ReadLine());
 
-            case "cyan":
-                Console.BackgroundColor = ConsoleColor.Cyan;
-                Console.ForegroundColor = ConsoleColor.Black;
-
-                Console.WriteLine("Your color is cyan!");
-                break;
-
-            default:
-                Console.BackgroundColor = ConsoleColor.Yellow;
-                Console.ForegroundColor = ConsoleColor.Red;
-
-                Console.WriteLine("Your color is yellow!");
-                break;
+            User.favcolore = new string[3];
+            Console.WriteLine("Введите три любимых цвета");
+            for (int i = 0; i < User.favcolore.Length; i++)
+            {
+                User.favcolore[i] = Console.ReadLine();
+            }
         }
     }
 }
